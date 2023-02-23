@@ -1,9 +1,16 @@
-/* https://www.hackerrank.com/challenges/weather-observation-station-20/problem?isFullScreen=true */
-/* Weather Observation Station 20 MediumSQL (Intermediate) */ 
-SET @r = 0;
-
-SELECT ROUND(AVG(Lat_N), 4)
-FROM (SELECT (@r := @r + 1) AS r, Lat_N FROM Station ORDER BY Lat_N) Temp
-WHERE
-    r = (SELECT CEIL(COUNT(*) / 2) FROM Station) OR
-    r = (SELECT FLOOR((COUNT(*) / 2) + 1) FROM Station)
+/* https://www.hackerrank.com/challenges/contest-leaderboard/problem?isFullScreen=true */
+/* Contest Leaderboard MediumSQL (Intermediate) */
+SELECT h.hacker_id, h.name, t1.total_score
+  FROM (
+        SELECT hacker_id, SUM(max_score) AS total_score
+          FROM (
+                SELECT hacker_id, MAX(score) AS max_score
+                  FROM Submissions
+                GROUP BY hacker_id, challenge_id
+               ) t
+        GROUP BY hacker_id
+       ) t1
+  JOIN Hackers h
+    ON h.hacker_id = t1.hacker_id
+ WHERE t1.total_score <> 0
+ ORDER BY total_score DESC, hacker_id;
