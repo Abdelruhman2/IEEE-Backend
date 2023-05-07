@@ -25,12 +25,15 @@
         <li class="nav-item">
           <a class="nav-link" href="signup.php">Register</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="product.php">Product</a>
+        </li>
         <ul class = "menu-member">
         <?php 
         if(isset($_SESSION["userid"])) 
         {
         ?>
-        <li><a href = '#'><?php echo $_SESSION["useruid"]; ?></a></li>
+        <li><a href = '#'><?php echo $_SESSION["userid"]; ?></a></li>
         <li><a href = "includes/logout.inc.php" class = "header-login-a">LOGOUT</a></li>
         <?php
         }
@@ -42,7 +45,7 @@
           <?php
         }
       ?>
-      </ul>
+        </ul>
       </ul>
     <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
     <li class="nav-item">

@@ -26,7 +26,8 @@ include 'includes/footer.inc.php' ;
         <input type="password" name="confirm_password" required>
         <label for="email">Email:</label>
         <input type="email"  name="email" required>
-        <button type="submit">Sign up</button>
+        <button name= 'submit' type="submit">Sign up</button>
+
         </form>
       <p>Already have an account? <a href="http://localhost/loginsystem/index.php">Login</a></p>
       <p>Already have an account? <a href="http://localhost/loginsystem/Home.php">Home</a></p>

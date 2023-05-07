@@ -17,21 +17,19 @@ class Login extends Dbh
         exit();
     }
 
-   $loginData = $stmt->fetchAll(PDO::FETCH_ASSOC);
-   if(count(loginData) == 0)
-   {
-       $stmt = null;
-       header("location: ../index.php?error=usernotfound")
-       exit();
-   }
-   return $profileData;
+if(!$stmt->execute(array($username , $pwd)))
+{
+    $stmt = null;
+    header("location: ../index.php?error=stmtfailed");
+    exit();
+}
    $pwdHashed = $stmt->fetchAll(PDO::FETCH_ASSOC);
    $checkPwd = password_verify($pwd ,$pwdHashed[0]["users_pwd"]);
 
    if($checkPwd == false)
    {
        $stmt = null;
-       header("location: ../index.php?error=wrongpassword")
+       header("location: ../index.php?error=wrongpassword");
        exit();
    }
    elseif($checkPwd == true)
@@ -39,7 +37,7 @@ class Login extends Dbh
     $stmt = $this->connect()->prepare('SELECT * FROM users WHERE users_username
     = ? OR users_email = ? AND users_pwd = ?;');
       
-    if(!$stmt->execute(array($username ,$username ,   $pwdHashed[0]["users_pwd"])))
+    if(!$stmt->execute(array($username ,$username ,   $pwd)))
     {
         $stmt = null;
         header("location: ../index.php?error=stmtfailed");
@@ -49,15 +47,15 @@ class Login extends Dbh
    if($stmt->rowCount() == 0)
    {
        $stmt = null;
-       header("location: ../index.php?error=usernotfound")
+       header("location: ../index.php?error=usernotfound");
        exit();
    }
 
    $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
    session_start();
-   $_SESSION["userid"] = $user[0]["users_id"];
-   $_SESSION["useruid"] = $user[0]["users_uid"];
+   $_SESSION["userid"] = $user[0]["user_id"];
+   $_SESSION["useruid"] = $user[0]["user_uid"];
 
    }
 

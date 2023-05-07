@@ -9,7 +9,7 @@ include 'includes/footer.inc.php' ;
   <head>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/style.app.css">
-
+ 
     <meta charset="UTF-8">
     <title>Login Form</title>
     <style></style>
@@ -23,9 +23,9 @@ include 'includes/footer.inc.php' ;
         <input type="text" name="username" required>
         <label for="password">Password:</label>
         <input type="password" name="pwd" required>
-        <button type="submit">Login</button>
+        <button name= 'submit' type="submit">Login</button>
         <p>Don't have an account? <a href  ="http://localhost/loginsystem/signup.php" >Sign up</a></p>
-        <!-- = '<?##php echo $signup ; ?> ' -->
+        
       </form>
     </div>
   </body>

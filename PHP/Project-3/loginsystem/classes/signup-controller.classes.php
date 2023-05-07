@@ -94,7 +94,7 @@ private function invalidUsername()
 private function invalidEmail()
 {
     $result;
-    if(!filter_var($this->email , FILTER_VALIDATION_EMAIL))
+    if(!filter_var($this->email , FILTER_VALIDATE_EMAIL))
     {
         $result = false;
 

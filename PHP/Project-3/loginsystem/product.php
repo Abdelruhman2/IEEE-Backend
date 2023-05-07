@@ -1,17 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" href="css/productstyle.css">
+    <meta charset="UTF-8">
+    <title>Product Page</title>
+    <style></style>
+  </head>
+  <body>
+  <?php 
+        if(isset($_SESSION["userid"])) 
+        {
+        ?>
+        <center><li><a href = '#'><?php echo 'Welcome ' . $_SESSION["userid"] . '!'; ?></a></li> </center>
+        <li><a href = "includes/logout.inc.php" class = "header-login-a">LOGOUT</a></li>
+        <?php
+        }
+        ?>
+    <div class="col-lg-6 col-xxl-4 my-5 mx-auto">
+    <center><div class="d-grid gap-2">
+      <a href="product/add_product.php" target="_blank">
+      <button class="btn addp" name= 'add_product' type="button"> Add Product  </button>
+      </a>
+      <a href="product/delete_product.php" target="_blank">
+      <button class="btn deltep" name= 'delete_product' type="button"> Delete Prodcut </button>
+      </a>
+      <a href="product/edit_product.php" target="_blank">
+      <button class="btn editp" name= 'edit_product' type="button">Edit Product</button>
+      </a>
+      <a href="product/view_product.php" target="_blank">
+      <button class="btn viewp" name= 'view_product' type="button">View Product</button>
+      </a>
+      
+      </div>
+    </div></center>
+      
+    </div>
+  </body>
+</html>
 
 
-<button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Top popover">
-  Popover on top
-</button>
-<button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Right popover">
-  Popover on right
-</button>
-<button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover">
-  Popover on bottom
-</button>
-<button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-content="Left popover">
-  Popover on left
-</button>
 
 
 
@@ -78,34 +105,3 @@
 
 
 
-
-
-<!-- <!DOCTYPE html>
-<html>
-  <head>
-  <link rel="stylesheet" href="css/style.app.css">
-    <meta charset="UTF-8">
-    <title>Product Shop</title>
-    <style></style>
-  </head>
-  <body>
-  <div class="header">
-  <a href="http://localhost/loginsystem/logout.php">LOGOUT</a>
-</div>
-  <nav class="navbar navbar-light bg-light">
-  <div class="container">
-    <a class="navbar-brand" href="#">
-      <img src="logo/lets-shopping-logo-design.jpg" alt="" width="100" height="80">
-    </a>
-  </div>
-</nav>
-    <div class="login-form">
-      <h2>Welcome <?php echo 'Abdo' ?></h2>
-      <button type="Add_Product">Add_Product</button>
-      <button type="Edit_Product">Edit_Product</button>
-      <button type="Delete_Product">Delete_Product</button>
-      <button type="View_Product">Delete_Product</button>
-    </div>
-  </body>
-  
-</html> -->

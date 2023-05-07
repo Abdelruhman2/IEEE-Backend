@@ -13,7 +13,7 @@ try
         $username = "root";
         $password = "";
         // mysql
-        $dbh = new PDO('mysqli:host=localhost;dbname=ooplogin' , $username , $password);
+        $dbh = new PDO('mysql:host=localhost;dbname=ooplogin' , $username , $password);
     return $dbh;
     }
     catch (PDOException $e)

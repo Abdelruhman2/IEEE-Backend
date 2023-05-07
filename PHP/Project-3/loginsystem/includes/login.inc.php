@@ -2,6 +2,8 @@
 
 if(isset($_POST["submit"]))
 {
+    echo 'Succssful' ;
+
     // Grabbing the data
     $username = $_POST["username"];
     $pwd = $_POST["pwd"];
@@ -21,6 +23,13 @@ if(isset($_POST["submit"]))
 
 
 }
+else
+{
+
+    echo 'ERROR ! ';
+
+}
+
 
 
 
